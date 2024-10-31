@@ -1,32 +1,13 @@
-// Header.res
 @react.component
-let make = (~categories) => {
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="#">
-      {React.string("Boutique")}
-    </a>
-    <button
-      className="navbar-toggler"
-      type_="button" // Type de bouton
-      ariaControls="navbarNav"
-      ariaExpanded=false // Booléen, sans guillemets
-      ariaLabel="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav ml-auto">
-        {categories
-          ->Array.map(category =>
-            <li className="nav-item">
-              <a className="nav-link" href={"#" ++ category["name"]}>
-                {React.string(category["name"])}
-              </a>
-            </li>
-          )
-          ->React.array
-        }
-      </ul>
+let make = () => {
+  <header className="bg-gray-900 text-white p-4">
+    <div className="container mx-auto flex justify-between items-center">
+      <h1 className="text-2xl font-bold">{"Boutique de Vêtements"->React.string}</h1>
+      <nav className="space-x-4">
+        <a href="./categorie" className="hover:text-gray-300">{"Catégories"->React.string}</a>
+        <a href="./marque" className="hover:text-gray-300">{"Marque"->React.string}</a> {/* Mise à jour ici */}
+        <a href="#contact" className="hover:text-gray-300">{"Contact"->React.string}</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 }

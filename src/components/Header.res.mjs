@@ -3,42 +3,37 @@
 import * as JsxRuntime from "react/jsx-runtime";
 
 function Header(props) {
-  return JsxRuntime.jsxs("nav", {
-              children: [
-                JsxRuntime.jsx("a", {
-                      children: "Boutique",
-                      className: "navbar-brand",
-                      href: "#"
-                    }),
-                JsxRuntime.jsx("button", {
-                      children: JsxRuntime.jsx("span", {
-                            className: "navbar-toggler-icon"
+  return JsxRuntime.jsx("header", {
+              children: JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("h1", {
+                            children: "Boutique de Vêtements",
+                            className: "text-2xl font-bold"
                           }),
-                      "aria-label": "Toggle navigation",
-                      "aria-expanded": false,
-                      "aria-controls": "navbarNav",
-                      className: "navbar-toggler",
-                      type: "button"
-                    }),
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsx("ul", {
-                            children: props.categories.map(function (category) {
-                                  return JsxRuntime.jsx("li", {
-                                              children: JsxRuntime.jsx("a", {
-                                                    children: category.name,
-                                                    className: "nav-link",
-                                                    href: "#" + category.name
-                                                  }),
-                                              className: "nav-item"
-                                            });
-                                }),
-                            className: "navbar-nav ml-auto"
-                          }),
-                      className: "collapse navbar-collapse",
-                      id: "navbarNav"
-                    })
-              ],
-              className: "navbar navbar-expand-lg navbar-light bg-light"
+                      JsxRuntime.jsxs("nav", {
+                            children: [
+                              JsxRuntime.jsx("a", {
+                                    children: "Catégories",
+                                    className: "hover:text-gray-300",
+                                    href: "./categorie"
+                                  }),
+                              JsxRuntime.jsx("a", {
+                                    children: "Marque",
+                                    className: "hover:text-gray-300",
+                                    href: "./marque"
+                                  }),
+                              JsxRuntime.jsx("a", {
+                                    children: "Contact",
+                                    className: "hover:text-gray-300",
+                                    href: "#contact"
+                                  })
+                            ],
+                            className: "space-x-4"
+                          })
+                    ],
+                    className: "container mx-auto flex justify-between items-center"
+                  }),
+              className: "bg-gray-900 text-white p-4"
             });
 }
 
