@@ -1,3 +1,7 @@
+#bdd dans src/assets/bdd
+#veuillez personnalisez le server (le port, le nom de la bdd, user, et mot de passe) voici le lien du server : https://github.com/NoaSillam/api-rescript
+
+
 # ReScript / Vite Starter Template
 
 - [Installation](../../README.md)
@@ -38,3 +42,9 @@ In ReScript, it's a good habit to keep track of the actual JS output the compile
 This will also make it easier for your Non-ReScript coworkers to read and understand the changes in Github PRs, and call you out when you are writing inefficient code.
 
 If you want to opt-out, feel free to remove all compiled `.res.mjs` files within the `src` directory and add `src/**/*.res.mjs` in your `.gitignore`.
+
+
+
+
+
+
