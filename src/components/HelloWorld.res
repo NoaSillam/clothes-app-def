@@ -49,7 +49,7 @@ let make = () => {
       <section className="my-8">
         // En-tête de la section avec le titre principal
         <h1 className="text-center my-4 display-4 fw-bold">
-          {React.string("Liste des vêtements")}
+          {React.string("Vêtements à la une")}
         </h1>
         <div
           className="row justify-content-center"
