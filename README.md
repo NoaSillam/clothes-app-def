@@ -1,5 +1,5 @@
-#bdd dans src/assets/bdd
-#veuillez personnalisez le server (le port, le nom de la bdd, user, et mot de passe) voici le lien du server : https://github.com/NoaSillam/api-rescript
+# bdd dans src/assets/bdd
+# veuillez personnalisez le server (le port, le nom de la bdd, user, et mot de passe) voici le lien du server : https://github.com/NoaSillam/api-rescript
 
 
 # ReScript / Vite Starter Template
