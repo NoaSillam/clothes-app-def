@@ -2,6 +2,7 @@
 
 import * as Api from "./Api.res.mjs";
 import * as React from "react";
+import * as Footer from "./Footer.res.mjs";
 import * as Header from "./Header.res.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
@@ -72,7 +73,8 @@ function ClothingList(props) {
                         margin: "0 auto",
                         width: "95%"
                       }
-                    })
+                    }),
+                JsxRuntime.jsx(Footer.make, {})
               ]
             });
 }

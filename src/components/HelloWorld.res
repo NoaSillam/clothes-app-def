@@ -16,74 +16,79 @@ let simulatedProducts = [
   { "name": "T-shirt classique", "price": "19.99", "description": "T-shirt basique en coton, disponible en plusieurs couleurs.", "image": "https://via.placeholder.com/150" }
 ]
 
+// @react.component
+// let make = (~name: string) => {
+//   <div className="bg-gray-50">
+//     <Header />
+//     <main className="container mx-auto p-4" style={{
+//       backgroundImage: "url('/src/assets/Image/fondmarbre.webp')",
+//       margin: "0 0 0 0", // Corrected margin value
+//     }}>
+
 @react.component
-let make = (~name: string) => {
-  <div className="bg-gray-50">
+let make = () => {
+  // Utilisez des guillemets doubles ou simples de manière cohérente
+
+      // Déclaration de l'état clothingList avec sa fonction de mise à jour
+      let (clothingList, setClothingList) = React.useState(() => []);
+
+      // Utilisation de React.useEffect pour récupérer les données de vêtements
+      React.useEffect(() => {
+        let makeRequest = async () => {
+          let data = await Api.fetchClothing();
+          setClothingList((_) => data);
+        };
+        let _ = makeRequest();
+        None;
+      }, []);
+
+    <div className="bg-gray-50">
     <Header />
-    <main className="container mx-auto p-4" style={{
-      backgroundImage: "url('/src/assets/Image/fondmarbre.webp')",
-      margin: "0 0 0 0", // Corrected margin value
-    }}>
+    <main className="container mx-auto p-4" style={{ backgroundImage: "url('/src/assets/Image/fondmarbre.webp')", margin: "0 0 0 0", }}>
+
       <section className="my-8">
-        <h1 className="text-3xl font-bold">
-  {("Bienvenue, " ++ name ++ "!")->React.string}
-</h1>
-
-        <p>{"Découvrez notre collection de vêtements tendance et modernes."->React.string}</p>
+        // En-tête de la section avec le titre principal
+        <h1 className="text-center my-4 display-4 fw-bold">
+          {React.string("Liste des vêtements")}
+        </h1>
+        <div
+          className="row justify-content-center"
+          style={{width: "95%", margin: "0 auto"}}>
+          {
+            clothingList
+            -> Array.map(clothing =>
+              <div
+                className="col-3 mb-4 d-flex justify-content-center"
+                key={clothing.id->Int.toString}>
+                <div className="card text-center" style={{width: "100%"}}>
+                  <div className="d-flex justify-content-center">
+                    <img
+                      src={"/src/assets/Images/" ++ clothing.imageUrl}
+                      alt={clothing.name}
+                      className="card-img-top"
+                      style={{
+                        height: "200px",
+                        width: "45%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                  <div className="card-body">
+                    <p className="card-title">
+                      {React.string(clothing.name)}
+                    </p>
+                    <a href="#" className="btn btn-secondary">
+                      {React.string(clothing.price->Float.toString ++ " €")}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )->React.array
+          }
+        </div>
       </section>
-//      <section id="categories" className="my-8">
-//   <h2 className="text-2xl font-bold mb-4">{"Catégories"->React.string}</h2>
-//   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-//     {categories
-//      ->Array.map(category =>
-//        <Categorie name={React.string({category.name})} />
-//      )
-//      ->React.array
-//     }
-//   </div>
-// </section>
 
 
-//     <section id="products" className="my-8">
-//   <h2 className="text-2xl font-bold mb-4">{"Produits Populaires"->React.string}</h2>
-//   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-//     {simulatedProducts
-//      ->Array.map(product =>
-//        <ProductCard product=product />
-//      )
-//      ->React.array
-//     }
-//   </div>
-// </section>
-
-
-// <section id="products" className="my-8">
-//          <div className="container mt-5">
-//     <h2 className="mb-4">{"Produits Populaires"->React.string}</h2>
-//     <div className="row">
-//       {simulatedProducts
-//         ->Array.map(product =>
-//           <div className="col-md-4 mb-4">
-//             <Product
-//               name=product["name"]
-//               price=product["price"]
-//               description=product["description"]
-//               image=product["image"]
-//             />
-//           </div>
-//         )
-//         ->React.array
-//       }
-//     </div>
-//   </div>
-//       </section>
-
-      // <section id="contact" className="my-8">
-      //   <h2 className="text-2xl font-bold mb-4">{"Contactez-Nous"->React.string}</h2>
-      //   <p>{"Pour toute information, contactez-nous à contact@boutique.com."->React.string}</p>
-      // </section>
-
-      
 
     </main>
     <Footer />

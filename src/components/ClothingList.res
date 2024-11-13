@@ -40,5 +40,6 @@ let make = () => {
         </div>
       )->React.array}
     </div>
+    <Footer />
   </div>
 };

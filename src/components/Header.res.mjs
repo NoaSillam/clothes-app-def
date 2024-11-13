@@ -7,33 +7,42 @@ function Header(props) {
               children: JsxRuntime.jsxs("div", {
                     children: [
                       JsxRuntime.jsx("h1", {
-                            children: "Boutique de Vêtements",
-                            className: "text-2xl font-bold"
+                            children: "NOÏA Shop",
+                            className: "h2 fw-bold text-white"
                           }),
-                      JsxRuntime.jsxs("nav", {
-                            children: [
-                              JsxRuntime.jsx("a", {
-                                    children: "Catégories",
-                                    className: "hover:text-gray-300",
-                                    href: "./categorie"
-                                  }),
-                              JsxRuntime.jsx("a", {
-                                    children: "Marque",
-                                    className: "hover:text-gray-300",
-                                    href: "./marque"
-                                  }),
-                              JsxRuntime.jsx("a", {
-                                    children: "Contact",
-                                    className: "hover:text-gray-300",
-                                    href: "#contact"
-                                  })
-                            ],
-                            className: "space-x-4"
+                      JsxRuntime.jsx("nav", {
+                            children: JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsx("a", {
+                                          children: "Catégories",
+                                          className: "text-white me-3",
+                                          href: "./categorie"
+                                        }),
+                                    JsxRuntime.jsx("a", {
+                                          children: "Marque",
+                                          className: "text-white me-3",
+                                          href: "./marque"
+                                        }),
+                                    JsxRuntime.jsx("a", {
+                                          children: "Contact",
+                                          className: "text-white",
+                                          href: "#contact"
+                                        })
+                                  ],
+                                  className: "d-flex"
+                                }),
+                            className: "navbar",
+                            style: {
+                              backgroundColor: "#424547"
+                            }
                           })
                     ],
-                    className: "container mx-auto flex justify-between items-center"
+                    className: "container d-flex justify-content-between align-items-center"
                   }),
-              className: "bg-gray-900 text-white p-4"
+              className: "p-3",
+              style: {
+                backgroundColor: "#424547"
+              }
             });
 }
 
